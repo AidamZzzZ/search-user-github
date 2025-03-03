@@ -1,13 +1,39 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <meta name="Aplicacion sencilla para ver la informacion de un perfil de GitHub utilizando la API de GitHub">
+    <title>Visor de perfiles de GitHub</title>
+    <link rel="stylesheet" href="./src/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/54b6f92c9a.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <div class="header">
+      <img src="https://asset.brandfetch.io/idZAyF9rlg/id__5yUccv.png?updated=1719469970995" alt="GitHub icon">
+      <h1>Visor de perfiles de GitHub</h1>
+    </div>
+    
+    <div class="search-container">
+      <h2 class="title-container">Buscar un usuario de GitHub</h2>
+      <p class="subtitle-container">Ingresa un nombre de usuario de GitHub para ver la informacion de su perfil</p>
+      <div>
+        <input type="text" id="input-user" name="input-user" class="input-user" placeholder="Ingrese usuario GitHub">
+        <button type="button" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+      </div>
+
+      <div class="container-error" class="filter">
+        <p class="error-message">Usuario no encontrado. Por favor verifique el nombre de usuario y vuelva a intentarlo.</p>
+      </div>
+    </div>
+    <div class="card-information">
+      
+    </div>
+
+    <script src="./src/main.js"></script>
   </body>
 </html>
