@@ -1,5 +1,6 @@
 const cardInformationEl = document.querySelector(".card-information");
 const containerError = document.querySelector(".container-error");
+const errorMesageEl = document.querySelector(".error-message");
 const searchButton = document.querySelector(".btn-search");
 const userInput = document.querySelector(".input-user");
 
@@ -14,25 +15,28 @@ async function fetchData() {
 		const year = data.created_at.slice(0, 4)
 
 		containerError.classList.add("filter")
+		cardInformationEl.classList.remove("filter")
 		
 		cardInformationEl.innerHTML = `
 	      <div class="basic-info">
 	        <img src="${data.avatar_url}" alt="user-profile">
-	        <h2 class="name">${data.name}</h2>
-	        <p class="user-link">@${data.login}<span></span> </p>
+	        <div>
+		        <h2 class="name">${data.name}</h2>
+		        <p class="user-link"><a href="${data.html_url}" target="_blank"><span>@${data.login}</span></a> <i class="fa-solid fa-arrow-up-right-from-square"></i></p>
+	      	</div>
 	      </div>
 	      <p class="bio">${data.bio || "not bio"}</p>
 	      <div class="follows">
 	        <div class="container-follow">
-	          <span>${data.public_repos}</span><p>repositories</p>
+	          <p><i class="fa-solid fa-user"></i><span>${data.public_repos}</span>repositories</p>
 	        </div>
 
 	        <div class="container-follow">
-	          <span>${data.followers}</span><p>followers</p>
+	          <p><i class="fa-solid fa-users"></i><span>${data.followers}</span>followers</p>
 	        </div>
 	        
 	        <div class="container-follow">
-	          <span>${data.following}</span><p>following</p>
+	          <p><i class="fa-solid fa-users"></i><span>${data.following}</span>following</p>
 	        </div>
 	      </div>
 
@@ -41,9 +45,13 @@ async function fetchData() {
 		`
 	} catch(e) {
 		cardInformationEl.innerHTML = "";
+		cardInformationEl.classList.add("filter")
 		containerError.classList.remove("filter")
-	}
-}
+		userInput.value === ""
+			? errorMesageEl.textContent = "Porfavor ingrese un usuario de GitHub"
+			: errorMesageEl.textContent = "Usuario no encontrado. Por favor verifique el nombre de usuario y vuelva a intentarlo.";
+	};
+};
 
 searchButton.addEventListener("click", () => {
 	fetchData()

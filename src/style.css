@@ -3,6 +3,7 @@
   --secondary-color: #075bd3;
   --terciary-color: #f5f6f7;
   --fourty-color: #cfcfcf;
+  --alert-color: #ff6767;
 }
 
 *, *::before, *::after {
@@ -71,9 +72,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .input-user {
-  width: 80%;
+  width: 83%;
   border: 1px solid var(--primary-color);
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
 }
 
@@ -86,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-search {
   width: 15%;
-  padding: 5px;
+  padding: 11px;
   border: none;
   border-radius: 5px;
   background-color: var(--secondary-color);
@@ -103,13 +104,94 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: 5px;
 }
 
-.error-input {
-  border: red 1px solid;
+.fa-arrow-up-right-from-square {
+  color: var(--primary-color);
+  margin-left: 5px;
+}
+
+.fa-user,
+.fa-users {
+  margin-right: 10px;
+}
+
+.container-error {
+  border: 1px solid ;
+  width: 99%;
   padding: 20px;
   margin-top: 15px;
   border-radius: 5px;
 }
 
+.container-error .error-message {
+  color: var(--alert-color);
+}
+
+.card-information {
+  border: 1px solid var(--fourty-color);
+  width: 700px;
+  padding: 30px;
+  margin: 0 auto;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.basic-info {
+  display: flex;
+}
+
+.basic-info img {
+  width: 100px;
+  border-radius: 50%;
+}
+
 .filter {
   display: none;
+}
+
+.basic-info div {
+  margin-left: 15px;
+}
+
+.name,
+.user-link a {
+  font-size: 1.5rem;
+}
+
+.user-link a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.user-link a:hover {
+  text-decoration: underline;
+}
+
+.follows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.container-follow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.container-follow span {
+  margin-right: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.bio {
+  margin-top: 30px;
+  font-weight: 600;
+}
+
+.joined {
+  margin-top: 20px;
+  color: var(--primary-color);
 }
